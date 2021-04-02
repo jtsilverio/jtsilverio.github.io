@@ -17,25 +17,23 @@ As configurações padroes do TLP já são suficientes para melhorar o desempenh
 
 As configurações do powertop devem ser reaplicadas a cada nova sessão. Para automatizar esse processor é possível seguir o tutorial na wiki do Arch para criar inicializar o powertop como um serviço.
 
-- [https://wiki.archlinux.org/index.php/powertop](https://wiki.archlinux.org/index.php/powertop)
-- [https://wiki.archlinux.org/index.php/TLP](https://wiki.archlinux.org/index.php/TLP)
+1. [https://wiki.archlinux.org/index.php/powertop](https://wiki.archlinux.org/index.php/powertop)
+2. [https://wiki.archlinux.org/index.php/TLP](https://wiki.archlinux.org/index.php/TLP)
 
-## Bug Intel e Undervolt
+## Turbo Boost e Undervolt
 
-O T480 tem um problema com um firmware da Intel que detecta quando o notebook está no colo e limita o clock do processador. Para impedir que esse throttle aconteça em condições normais é preciso instalar o `throttled` por [esse repositório](https://github.com/erpalma/throttled). Com esse pacote também é possível fazer o undervolt. No meu T480 tenho deixado com -90mV e o sistema tem se mantido estável.
+O T480 tem um problema com um firmware da Intel que impede que limita o clock do processador. Para impedir que esse throttle aconteça em condições normais é preciso instalar o `throttled` por [esse repositório](https://github.com/erpalma/throttled). Com esse pacote também é possível fazer o undervolt. No meu T480 tenho deixado com -90mV e o sistema tem se mantido estável.
 
 ```
 sudo apt install git build-essential python3-dev libdbus-glib-1-dev libgirepository1.0-dev libcairo2-dev python3-venv python3-wheel
 git clone https://github.com/erpalma/throttled.git
 sudo ./throttled/install.sh
 ```
-
-- https://github.com/erpalma/throttled
  
 ## Hibernação
 
-- https://medium.com/@csatyendra02/pop-os-hibernate-enable-step-by-step-complete-tutorial-and-references-601e0ca4c96e
-- https://pop-planet.info/forums/threads/guide-to-hibernate-answer-is-a-guide.426/
+1. https://medium.com/@csatyendra02/pop-os-hibernate-enable-step-by-step-complete-tutorial-and-references-601e0ca4c96e
+2. https://pop-planet.info/forums/threads/guide-to-hibernate-answer-is-a-guide.426/
 
 ## Bug das teclas de Multimidia em teclados ABNT2
 
@@ -47,7 +45,7 @@ Existe um bug no X11 quando as teclas multimidias são usadas em conjunto com um
 Comment the line: modifier_map Mod3 { Scroll_Lock };
 ```
 
-- [https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04](https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04)
+1. [https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04](https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04)
 
 ## libinput-gestures
 
@@ -64,7 +62,7 @@ gesture swipe down	xdotool key ctrl+super+Up
 
 # Browser back/forward
 gesture swipe left	3 xdotool key alt+Right
-swipe gesture right	3 xdotool key alt+Left
+gesture swipe right	3 xdotool key alt+Left
 ```
 
 ## Outros Programas
@@ -84,8 +82,8 @@ export MOZ_X11_EGL=1 		# HW Acceleration
 
 O ddcutil permite configurar o brilho do monitor por softaware. 
 
-- https://github.com/daitj/gnome-display-brightness-ddcutil/blob/master/README.md
-- https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
+1. https://github.com/daitj/gnome-display-brightness-ddcutil/blob/master/README.md
+2. https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
 
 ### Google-drive-ocaml
 
@@ -102,6 +100,6 @@ sudo apt install fonts-ebgaramond -y
 sudo apt purge fonts-noto* fonts-noto-cjk* fonts-noto-cjk-extra* fonts-noto-core* fonts-noto-extra* fonts-noto-mono* fonts-noto-ui-core* fonts-noto-ui-extra* fonts-noto-unhinted*
 ```
 
-- Como tema do GTK tenho usado o **Nextwaita**: [https://www.gnome-look.org/p/1289376/](https://www.gnome-look.org/p/1289376/)
-- Como tema do Gnome tenho usado o **AdwaitaEx** por ter uma barra de status mais compacta: [https://github.com/hrdwrrsk/AdwaitaExtended](https://github.com/hrdwrrsk/AdwaitaExtended)
-- Como ícones tenho usado o **Elementosh-Blueberry**: [https://www.gnome-look.org/p/1427890/](https://www.gnome-look.org/p/1427890/)
+1. Como tema do GTK tenho usado o **Nextwaita**: [https://www.gnome-look.org/p/1289376/](https://www.gnome-look.org/p/1289376/)
+2. Como tema do Gnome tenho usado o **AdwaitaEx** por ter uma barra de status mais compacta: [https://github.com/hrdwrrsk/AdwaitaExtended](https://github.com/hrdwrrsk/AdwaitaExtended)
+3. Como ícones tenho usado o **Elementosh-Blueberry**: [https://www.gnome-look.org/p/1427890/](https://www.gnome-look.org/p/1427890/)
