@@ -4,7 +4,7 @@
  <title>jtsilverio</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-04-03T18:10:34-03:00</updated>
+ <updated>2021-04-03T18:35:51-03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -127,9 +127,13 @@ while true; do
 done
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h3 id=&quot;plank&quot;&gt;Plank&lt;/h3&gt;
+
+&lt;p&gt;Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock do sistema. Recentemen mudei para o plank por ser possivel ter acesso direto à lista de arquivos das pastas colocadas na dock. O tema do plank é o [https://github.com/hrdwrrsk/AdwaitaExtended]&lt;/p&gt;
+
 &lt;h2 id=&quot;configurações-estéticas&quot;&gt;Configurações Estéticas&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/gtk_theme.png&quot; alt=&quot;pop_os_terminal&quot; title=&quot;Tema GTK&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/gnome_tweaks.png&quot; alt=&quot;pop_os_terminal&quot; title=&quot;Tema GTK&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis. Como fonte sans-serif do sistema tenho usado a &lt;a href=&quot;https://rsms.me/inter/&quot;&gt;Inter&lt;/a&gt;. Como fonte monospace tenho usado a &lt;a href=&quot;https://github.com/tonsky/FiraCode&quot;&gt;firacode&lt;/a&gt;. Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.&lt;/p&gt;
 
@@ -144,6 +148,8 @@ sudo apt purge fonts-noto* fonts-noto-cjk* fonts-noto-cjk-extra* fonts-noto-core
   &lt;li&gt;Como tema do Gnome tenho usado o &lt;strong&gt;AdwaitaEx&lt;/strong&gt; por ter uma barra de status mais compacta: &lt;a href=&quot;https://github.com/hrdwrrsk/AdwaitaExtended&quot;&gt;https://github.com/hrdwrrsk/AdwaitaExtended&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Como ícones tenho usado o &lt;strong&gt;Elementosh-Blueberry&lt;/strong&gt;: &lt;a href=&quot;https://www.gnome-look.org/p/1427890/&quot;&gt;https://www.gnome-look.org/p/1427890/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/gtk_theme.png&quot; alt=&quot;pop_os_terminal&quot; title=&quot;Tema GTK&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
