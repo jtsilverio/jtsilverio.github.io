@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/about</loc>
-<lastmod>2020-09-17T17:20:42-03:00</lastmod>
+<loc>http://localhost:4000/about</loc>
+<lastmod>2021-04-03T18:10:34-03:00</lastmod>
 </url>
 <url>
-<loc>/search</loc>
-<lastmod>2020-09-17T17:20:42-03:00</lastmod>
+<loc>http://localhost:4000/search</loc>
+<lastmod>2021-04-03T18:10:34-03:00</lastmod>
 </url>
 <url>
-<loc>/2020/09/17/hello-world</loc>
+<loc>http://localhost:4000/2020/09/17/hello-world</loc>
 <lastmod>2020-09-17T00:00:00-03:00</lastmod>
 </url>
 <url>
-<loc>/2020/09/17/hello-world2</loc>
-<lastmod>2020-09-17T00:00:00-03:00</lastmod>
+<loc>http://localhost:4000/2021/04/02/configura%C3%A7%C3%B5es-iniciais-do-linux-no-t480</loc>
+<lastmod>2021-04-02T00:00:00-03:00</lastmod>
 </url>
 <url>
-<loc>/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 </urlset>

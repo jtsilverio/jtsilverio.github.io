@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>jtsilverio</title>
- <link href="/atom.xml" rel="self"/>
- <link href="/"/>
- <updated>2020-09-17T17:20:42-03:00</updated>
- <id></id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2021-04-03T18:10:34-03:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name></name>
    <email></email>
@@ -13,19 +13,145 @@
 
  
  <entry>
-   <title>Hello World2</title>
-   <link href="/2020/09/17/hello-world2"/>
-   <updated>2020-09-17T00:00:00-03:00</updated>
-   <id>/2020/09/17/Hello-World2</id>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget aliquam enim, vel laoreet sapien. Quisque ut nunc egestas, pretium urna quis, lacinia nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas porta, libero non mollis lacinia, sapien eros tincidunt ex, sed placerat libero leo dictum elit. Cras lobortis sed arcu eu feugiat. Suspendisse mollis est at posuere egestas. Vivamus ultrices, eros sit amet faucibus sollicitudin, odio nisi consectetur lacus, a dignissim velit sapien a leo. Nam in lacus eu quam consectetur vulputate.&lt;/p&gt;
+   <title>Configurações Iniciais Do Linux No T480</title>
+   <link href="http://localhost:4000/2021/04/02/configura%C3%A7%C3%B5es-iniciais-do-linux-no-t480"/>
+   <updated>2021-04-02T00:00:00-03:00</updated>
+   <id>http://localhost:4000/2021/04/02/Configurações-iniciais-do-Linux-no-T480</id>
+   <content type="html">&lt;p&gt;Algumas configurações do Pop_OS 20.10, Gnome 3.38 rodando no X11.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/pop_os.png&quot; alt=&quot;pop_os_terminal&quot; title=&quot;Pop_Os on T480&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;power-management&quot;&gt;Power Management&lt;/h2&gt;
+&lt;p&gt;Para uma melhor gestão de energia e economia de bateria instalar o TLP e o powertop.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository ppa:linrunner/tlp
+sudo apt install tlp tlp-rdw -y
+sudo apt install acpi-call-dkms -y
+sudo apt install powertop -y
+tlp start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As configurações padrões do TLP já são suficientes para melhorar o desempenho da bateria. O powertop, no entanto, deve ser calibrado e configurado. Primeiro rodar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo powertop -calibrate&lt;/code&gt;. Em seguida, para aplicar as configurações, rodar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;powertop&lt;/code&gt; ir até a ultima aba e aplicar as mudanças manualmente ou então rodar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo powertop --auto-tune&lt;/code&gt; para setar todas as opções para GOOD automaticamente.&lt;/p&gt;
+
+&lt;p&gt;As configurações do powertop devem ser reaplicadas a cada nova sessão. Para automatizar esse processor é possível seguir o tutorial na wiki do Arch para inicializar o powertop como um serviço.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/index.php/powertop&quot;&gt;https://wiki.archlinux.org/index.php/powertop&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/index.php/TLP&quot;&gt;https://wiki.archlinux.org/index.php/TLP&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;turbo-boost-e-undervolt&quot;&gt;Turbo Boost e Undervolt&lt;/h2&gt;
+
+&lt;p&gt;O T480 tem um problema com um firmware da Intel que limita o clock do processador. Para impedir que esse throttle aconteça em condições normais é preciso instalar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;throttled&lt;/code&gt; por &lt;a href=&quot;https://github.com/erpalma/throttled&quot;&gt;esse repositório&lt;/a&gt;. Com esse pacote também é possível fazer o undervolt. No meu T480 tenho deixado com -90mV e o sistema tem se mantido estável.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install git build-essential python3-dev libdbus-glib-1-dev libgirepository1.0-dev libcairo2-dev python3-venv python3-wheel
+git clone https://github.com/erpalma/throttled.git
+sudo ./throttled/install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;hibernação&quot;&gt;Hibernação&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;https://medium.com/@csatyendra02/pop-os-hibernate-enable-step-by-step-complete-tutorial-and-references-601e0ca4c96e&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;https://pop-planet.info/forums/threads/guide-to-hibernate-answer-is-a-guide.426/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;bug-das-teclas-de-multimidia-em-teclados-abnt2&quot;&gt;Bug das teclas de Multimidia em teclados ABNT2&lt;/h2&gt;
+
+&lt;p&gt;Existe um bug no X11 quando as teclas multimidias são usadas em conjunto com um teclado ABNT2. Nesses casos quando as teclas multimidas são pressionadas o uso dá CPU dá um pulo de alguns segundo para 100%. Esse problema e a solução estão relatados no link abaixo. Para evitar esse problema. No Wayland essas teclas funcionam sem problemas.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/share/X11/xkb/symbols/br
+---
+Comment the line: modifier_map Mod3 { Scroll_Lock };
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04&quot;&gt;https://askubuntu.com/questions/906723/fn-media-keys-slow-delayed-on-ubuntu-gnome-17-04&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;libinput-gestures&quot;&gt;libinput-gestures&lt;/h2&gt;
+
+&lt;p&gt;Para habilitar alguns gestos no trackpad no X11 estou usando o libinput-gestures e o xdotool. Alguns desses gestos já são implementados por padrão no Wayland mas como ainda não é possível compartilhar a tela em chamadas de vídeos no Wayland continuo usando o X11. Para instalar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libinput-gestures&lt;/code&gt; é só seguir as instruções em: &lt;a href=&quot;https://github.com/bulletmark/libinput-gestures&quot;&gt;https://github.com/bulletmark/libinput-gestures&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Minhas Configurações:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/libinput-gestures.conf
+---
+# Move workspaces
+gesture swipe up	xdotool key ctrl+super+Down
+gesture swipe down	xdotool key ctrl+super+Up
+
+# Browser back/forward
+gesture swipe left	3 xdotool key alt+Right
+gesture swipe right	3 xdotool key alt+Left
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;outros-programas&quot;&gt;Outros Programas&lt;/h2&gt;
+
+&lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
+
+&lt;p&gt;Tenho usado o Firefox por ele ser o único que implementa algum tipo de kinectic scrolling no Linux. Para habilitar essa configração e a aceleração de hardware é preciso setar algumas variaveis de ambiente.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/.profile
+---
+export MOZ_USE_XINPUT2=1	# Smooth Scrolling
+export MOZ_X11_EGL=1 		# HW Acceleration
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ddcutil&quot;&gt;DDCUtil&lt;/h3&gt;
+
+&lt;p&gt;O ddcutil permite configurar o brilho do monitor por softaware.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;https://github.com/daitj/gnome-display-brightness-ddcutil/blob/master/README.md&lt;/li&gt;
+  &lt;li&gt;https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;google-drive-ocaml&quot;&gt;Google-drive-ocaml&lt;/h3&gt;
+
+&lt;p&gt;Como infelizmente mão existe uma solução oficial da Google para o Google Drive File Stream estou utilizando o Google-grive ocamlfuse para montar o Google Drive como uma partição. Não achei uma outra solução melhor até o momento que permita sincronizar seletivamente algumas pastas ou arquivos. Até cheguei a testar o Insynca por 15 dias mas tive alguns problemas (gerados por eu mesmo) e acabei deixando de lado. As instruções de instação estão no github: &lt;a href=&quot;&quot;&gt;https://github.com/astrada/google-drive-ocamlfuse&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Para montar a partição automaticamente assim que eu esteja conectado ao wifi uso um script que é inicializado com o sistema.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/bin/bash
+
+while true; do
+  # check to see if there is a connection by pinging a Google server
+  if ping -q -c 1 -W 1 8.8.8.8 &amp;gt;/dev/null; then
+    # if connected, mount the drive and break the loop
+    google-drive-ocamlfuse /home/user/GoogleDrive; break;
+  else
+    # if not connected, wait for 10 second and then check again
+    sleep 10
+  fi
+done
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;configurações-estéticas&quot;&gt;Configurações Estéticas&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/gtk_theme.png&quot; alt=&quot;pop_os_terminal&quot; title=&quot;Tema GTK&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis. Como fonte sans-serif do sistema tenho usado a &lt;a href=&quot;https://rsms.me/inter/&quot;&gt;Inter&lt;/a&gt;. Como fonte monospace tenho usado a &lt;a href=&quot;https://github.com/tonsky/FiraCode&quot;&gt;firacode&lt;/a&gt;. Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install fonts-inter -y
+sudo apt install fonts-firacode -y
+sudo apt install fonts-ebgaramond -y
+sudo apt purge fonts-noto* fonts-noto-cjk* fonts-noto-cjk-extra* fonts-noto-core* fonts-noto-extra* fonts-noto-mono* fonts-noto-ui-core* fonts-noto-ui-extra* fonts-noto-unhinted*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Como tema do GTK tenho usado o &lt;strong&gt;Nextwaita&lt;/strong&gt;: &lt;a href=&quot;https://www.gnome-look.org/p/1289376/&quot;&gt;https://www.gnome-look.org/p/1289376/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Como tema do Gnome tenho usado o &lt;strong&gt;AdwaitaEx&lt;/strong&gt; por ter uma barra de status mais compacta: &lt;a href=&quot;https://github.com/hrdwrrsk/AdwaitaExtended&quot;&gt;https://github.com/hrdwrrsk/AdwaitaExtended&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Como ícones tenho usado o &lt;strong&gt;Elementosh-Blueberry&lt;/strong&gt;: &lt;a href=&quot;https://www.gnome-look.org/p/1427890/&quot;&gt;https://www.gnome-look.org/p/1427890/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </content>
  </entry>
  
  <entry>
    <title>Hello World</title>
-   <link href="/2020/09/17/hello-world"/>
+   <link href="http://localhost:4000/2020/09/17/hello-world"/>
    <updated>2020-09-17T00:00:00-03:00</updated>
-   <id>/2020/09/17/Hello-World</id>
+   <id>http://localhost:4000/2020/09/17/Hello-World</id>
    <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget aliquam enim, vel laoreet sapien. Quisque ut nunc egestas, pretium urna quis, lacinia nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas porta, libero non mollis lacinia, sapien eros tincidunt ex, sed placerat libero leo dictum elit. Cras lobortis sed arcu eu feugiat. Suspendisse mollis est at posuere egestas. Vivamus ultrices, eros sit amet faucibus sollicitudin, odio nisi consectetur lacus, a dignissim velit sapien a leo. Nam in lacus eu quam consectetur vulputate.&lt;/p&gt;
 </content>
  </entry>

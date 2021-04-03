@@ -1,5 +1,7 @@
 Algumas configurações do Pop_OS 20.10, Gnome 3.38 rodando no X11.
 
+![pop_os_terminal](/assets/pop_os.png "Pop_Os on T480")
+
 ## Power Management
 Para uma melhor gestão de energia e economia de bateria instalar o TLP e o powertop.
 
@@ -11,9 +13,9 @@ sudo apt install powertop -y
 tlp start
 ```
 
-As configurações padroes do TLP já são suficientes para melhorar o desempenho da bateria. O powertop, no entanto, deve ser calibrado e configurado. Primeiro rodar `sudo powertop -calibrate`. Em seguida, para aplicar as configurações, rodar o `powertop` ir até a ultima aba e aplicar as mudanças manualmente ou então rodar `sudo powertop --auto-tune` para setar todas as opções para GOOD automaticamente. 
+As configurações padrões do TLP já são suficientes para melhorar o desempenho da bateria. O powertop, no entanto, deve ser calibrado e configurado. Primeiro rodar `sudo powertop -calibrate`. Em seguida, para aplicar as configurações, rodar o `powertop` ir até a ultima aba e aplicar as mudanças manualmente ou então rodar `sudo powertop --auto-tune` para setar todas as opções para GOOD automaticamente. 
 
-As configurações do powertop devem ser reaplicadas a cada nova sessão. Para automatizar esse processor é possível seguir o tutorial na wiki do Arch para criar inicializar o powertop como um serviço.
+As configurações do powertop devem ser reaplicadas a cada nova sessão. Para automatizar esse processor é possível seguir o tutorial na wiki do Arch para inicializar o powertop como um serviço.
 
 1. [https://wiki.archlinux.org/index.php/powertop](https://wiki.archlinux.org/index.php/powertop)
 2. [https://wiki.archlinux.org/index.php/TLP](https://wiki.archlinux.org/index.php/TLP)
@@ -30,8 +32,8 @@ sudo ./throttled/install.sh
  
 ## Hibernação
 
-1. https://medium.com/@csatyendra02/pop-os-hibernate-enable-step-by-step-complete-tutorial-and-references-601e0ca4c96e
-2. https://pop-planet.info/forums/threads/guide-to-hibernate-answer-is-a-guide.426/
+1. [https://medium.com/@csatyendra02/pop-os-hibernate-enable-step-by-step-complete-tutorial-and-references-601e0ca4c96e]()
+2. [https://pop-planet.info/forums/threads/guide-to-hibernate-answer-is-a-guide.426/]()
 
 ## Bug das teclas de Multimidia em teclados ABNT2
 
@@ -47,10 +49,11 @@ Comment the line: modifier_map Mod3 { Scroll_Lock };
 
 ## libinput-gestures
 
-Para habilitar alguns gestos no trackpad no X11 estou usando o libinput-gestures. Alguns desses gestos já são implementados por padrão no Wayland mas como ainda não é possível compartilhar a tela em chamadas de vídeos no Wayland continuo usando o X. Para instalar o `libinput-gestures` só seguir as instruções em: [https://github.com/bulletmark/libinput-gestures](https://github.com/bulletmark/libinput-gestures)
+Para habilitar alguns gestos no trackpad no X11 estou usando o libinput-gestures e o xdotool. Alguns desses gestos já são implementados por padrão no Wayland mas como ainda não é possível compartilhar a tela em chamadas de vídeos no Wayland continuo usando o X11. Para instalar o `libinput-gestures` é só seguir as instruções em: [https://github.com/bulletmark/libinput-gestures](https://github.com/bulletmark/libinput-gestures)
 
 
 Minhas Configurações:
+
 ```
 /etc/libinput-gestures.conf
 ---
@@ -85,9 +88,28 @@ O ddcutil permite configurar o brilho do monitor por softaware.
 
 ### Google-drive-ocaml
 
-...
+Como infelizmente mão existe uma solução oficial da Google para o Google Drive File Stream estou utilizando o Google-grive ocamlfuse para montar o Google Drive como uma partição. Não achei uma outra solução melhor até o momento que permita sincronizar seletivamente algumas pastas ou arquivos. Até cheguei a testar o Insynca por 15 dias mas tive alguns problemas (gerados por eu mesmo) e acabei deixando de lado. As instruções de instação estão no github: [https://github.com/astrada/google-drive-ocamlfuse]()
+
+Para montar a partição automaticamente assim que eu esteja conectado ao wifi uso um script que é inicializado com o sistema.
+
+```
+#!/bin/bash
+
+while true; do
+  # check to see if there is a connection by pinging a Google server
+  if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+    # if connected, mount the drive and break the loop
+    google-drive-ocamlfuse /home/user/GoogleDrive; break;
+  else
+    # if not connected, wait for 10 second and then check again
+    sleep 10
+  fi
+done
+```
 
 ## Configurações Estéticas
+
+![pop_os_terminal](/assets/gtk_theme.png "Tema GTK")
 
 Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis. Como fonte sans-serif do sistema tenho usado a [Inter](https://rsms.me/inter/). Como fonte monospace tenho usado a [firacode](https://github.com/tonsky/FiraCode). Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.
 
