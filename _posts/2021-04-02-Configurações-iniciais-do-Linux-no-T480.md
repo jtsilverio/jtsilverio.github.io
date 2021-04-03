@@ -1,6 +1,4 @@
-# Configurando Pop_OS no Thinkpad T480
-
-Algumas configurações no Pop_OS 20.10, Gnome 3.38 rodando no X11.
+Algumas configurações do Pop_OS 20.10, Gnome 3.38 rodando no X11.
 
 ## Power Management
 Para uma melhor gestão de energia e economia de bateria instalar o TLP e o powertop.
@@ -22,7 +20,7 @@ As configurações do powertop devem ser reaplicadas a cada nova sessão. Para a
 
 ## Turbo Boost e Undervolt
 
-O T480 tem um problema com um firmware da Intel que impede que limita o clock do processador. Para impedir que esse throttle aconteça em condições normais é preciso instalar o `throttled` por [esse repositório](https://github.com/erpalma/throttled). Com esse pacote também é possível fazer o undervolt. No meu T480 tenho deixado com -90mV e o sistema tem se mantido estável.
+O T480 tem um problema com um firmware da Intel que limita o clock do processador. Para impedir que esse throttle aconteça em condições normais é preciso instalar o `throttled` por [esse repositório](https://github.com/erpalma/throttled). Com esse pacote também é possível fazer o undervolt. No meu T480 tenho deixado com -90mV e o sistema tem se mantido estável.
 
 ```
 sudo apt install git build-essential python3-dev libdbus-glib-1-dev libgirepository1.0-dev libcairo2-dev python3-venv python3-wheel
