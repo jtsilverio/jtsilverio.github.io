@@ -4,7 +4,7 @@
  <title>jtsilverio</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-04-03T18:35:51-03:00</updated>
+ <updated>2021-04-03T18:37:03-03:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -129,7 +129,7 @@ done
 
 &lt;h3 id=&quot;plank&quot;&gt;Plank&lt;/h3&gt;
 
-&lt;p&gt;Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock do sistema. Recentemen mudei para o plank por ser possivel ter acesso direto à lista de arquivos das pastas colocadas na dock. O tema do plank é o [https://github.com/hrdwrrsk/AdwaitaExtended]&lt;/p&gt;
+&lt;p&gt;Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock do sistema. Recentemen mudei para o plank por ser possivel ter acesso direto à lista de arquivos das pastas colocadas na dock. O tema do plank é o &lt;a href=&quot;&quot;&gt;https://github.com/hrdwrrsk/AdwaitaExtended&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;configurações-estéticas&quot;&gt;Configurações Estéticas&lt;/h2&gt;
 

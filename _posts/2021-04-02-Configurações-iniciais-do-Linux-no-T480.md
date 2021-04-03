@@ -109,7 +109,7 @@ done
 
 ### Plank
  
-Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock do sistema. Recentemen mudei para o plank por ser possivel ter acesso direto à lista de arquivos das pastas colocadas na dock. O tema do plank é o [https://github.com/hrdwrrsk/AdwaitaExtended]
+Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock do sistema. Recentemen mudei para o plank por ser possivel ter acesso direto à lista de arquivos das pastas colocadas na dock. O tema do plank é o [https://github.com/hrdwrrsk/AdwaitaExtended]()
 
 ## Configurações Estéticas
 
