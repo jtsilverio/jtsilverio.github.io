@@ -113,7 +113,7 @@ Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock
 
 ## Configurações Estéticas
 
-![pop_os_terminal](/assets/gtk_theme.png "Tema GTK")
+![pop_os_terminal](/assets/gnome_tweaks.png "Tema GTK")
 
 Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis. Como fonte sans-serif do sistema tenho usado a [Inter](https://rsms.me/inter/). Como fonte monospace tenho usado a [firacode](https://github.com/tonsky/FiraCode). Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.
 
@@ -127,3 +127,5 @@ sudo apt purge fonts-noto* fonts-noto-cjk* fonts-noto-cjk-extra* fonts-noto-core
 1. Como tema do GTK tenho usado o **Nextwaita**: [https://www.gnome-look.org/p/1289376/](https://www.gnome-look.org/p/1289376/)
 2. Como tema do Gnome tenho usado o **AdwaitaEx** por ter uma barra de status mais compacta: [https://github.com/hrdwrrsk/AdwaitaExtended](https://github.com/hrdwrrsk/AdwaitaExtended)
 3. Como ícones tenho usado o **Elementosh-Blueberry**: [https://www.gnome-look.org/p/1427890/](https://www.gnome-look.org/p/1427890/)
+
+![pop_os_terminal](/assets/gtk_theme.png "Tema GTK")
