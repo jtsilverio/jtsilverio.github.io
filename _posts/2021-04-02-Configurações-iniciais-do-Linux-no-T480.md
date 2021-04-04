@@ -81,7 +81,7 @@ export MOZ_X11_EGL=1 		# HW Acceleration
 
 ### DDCUtil
 
-O ddcutil permite configurar o brilho do monitor por softaware. 
+O ddcutil permite configurar o brilho do monitor por software. Tenho usado ele em conjunto com um extensão do gnome que coloca um icone para ajuste de brilho na barra de status.
 
 1. https://github.com/daitj/gnome-display-brightness-ddcutil/blob/master/README.md
 2. https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
@@ -113,9 +113,11 @@ Até pouco tempo atrás estava usando a extensão Dash to Dock para ter uma dock
 
 ## Configurações Estéticas
 
-![pop_os_terminal](/assets/gnome_tweaks.png "Tema GTK")
+![tweaks_appearance](/assets/gnome_tweaks.png)
+![tweaks_fonts](/assets/gnome_tweaks_fonts.png)
 
-Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis. Como fonte sans-serif do sistema tenho usado a [Inter](https://rsms.me/inter/). Como fonte monospace tenho usado a [firacode](https://github.com/tonsky/FiraCode). Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.
+
+Tenho mudado as fontes padrões e os ícones por não achar os padões do Ubuntu/Pop_OS agradáveis usando o `gnome-tweaks`. Como fonte sans-serif do sistema tenho usado a [Inter](https://rsms.me/inter/). Como fonte monospace tenho usado a [firacode](https://github.com/tonsky/FiraCode). Depois de instalada a Firacode ainda é necessário mudar algumas configurações para os editores de texto reconhecerem essa fonte como monospace.
 
 ```
 sudo apt install fonts-inter -y
@@ -128,4 +130,4 @@ sudo apt purge fonts-noto* fonts-noto-cjk* fonts-noto-cjk-extra* fonts-noto-core
 2. Como tema do Gnome tenho usado o **AdwaitaEx** por ter uma barra de status mais compacta: [https://github.com/hrdwrrsk/AdwaitaExtended](https://github.com/hrdwrrsk/AdwaitaExtended)
 3. Como ícones tenho usado o **Elementosh-Blueberry**: [https://www.gnome-look.org/p/1427890/](https://www.gnome-look.org/p/1427890/)
 
-![pop_os_terminal](/assets/gtk_theme.png "Tema GTK")
+![pop_os_desktop](/assets/gtk_theme.png)
