@@ -86,6 +86,8 @@ O ddcutil permite configurar o brilho do monitor por software. Tenho usado ele e
 1. https://github.com/daitj/gnome-display-brightness-ddcutil/blob/master/README.md
 2. https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
 
+Update 05/05/2021: Infelizmente nem todos monitores ligados via usb-c parecem ser suportados pelo ddcutil.
+
 ### Google-drive-ocaml
 
 Como infelizmente mão existe uma solução oficial da Google para o Google Drive File Stream estou utilizando o Google-grive ocamlfuse para montar o Google Drive como uma partição. Não achei uma outra solução melhor até o momento que permita sincronizar seletivamente algumas pastas ou arquivos. Até cheguei a testar o Insynca por 15 dias mas tive alguns problemas (gerados por eu mesmo) e acabei deixando de lado. As instruções de instação estão no github: [https://github.com/astrada/google-drive-ocamlfuse]()
