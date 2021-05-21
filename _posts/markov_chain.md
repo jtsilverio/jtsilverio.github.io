@@ -1,14 +1,20 @@
 ---
 layout: post
 title: "Entendendo um pouco de Markov Chains"
+author: "Jefferson"
+date: '2021-05-21'
 output:
     md_document:
-        variant: markdown_github
+        variant: gfm
         preserve_yaml: true
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "~/Documents/jtsilverio.github.io/_posts") })
+categories:
+    - R
+    - Markov
 ---
 
-Simulando Cadeias de Markov no R
-================================
+# Simulando Cadeias de Markov no R
 
 Para simularmos uma cadeia de Markov precisamos definir nossa matriz de
 transição. Essa matriz mostra as probabilidades de transições entre os
@@ -93,8 +99,7 @@ tail(sim)
     ## [499,]    1    1    2    1    1    2    1    1    1
     ## [500,]    1    2    2    1    1    1    1    1    1
 
-Visualizando os resultados
-==========================
+# Visualizando os resultados
 
 Vamos plotar esses os resultados de algumas simulaçoes para entendermos
 como o sistema está mudando no tempo. Podemos ver no gráfico abaixo que
@@ -105,20 +110,7 @@ pela Cadeia de Markov ser um processo estocástico nenhuma das simualções
 library(ggplot2)
 library(tidyr)
 library(dplyr)
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 sim_df = pivot_longer(data.frame(time = 1:nrow(sim), sim), cols = 2:(ncol(sim)+1), names_to = "sim", values_to = "state")
 
 ggplot(sim_df) +
@@ -128,23 +120,19 @@ ggplot(sim_df) +
     theme_minimal()
 ```
 
-![](markov_chain_files/figure-markdown_github/line-plot-1.png) Ou seja,
-não é possível prever com certeza o que acontecerá no futuro dado que
-temos em qual estado o animals começou seu registro. Porém existem
-algumas propriedades estatísticas importantes. Porém, o que é
-interessante é que se calcularmos a proporção de repouso e atividade
-sobre o total de observações, que no nosso caso são 500, vamos obter um
-resultado muito próximo entre as simulações.
+![](/assets/line-plot-1.png)<!-- --> Ou seja, não é possível prever com
+certeza o que acontecerá no futuro dado que temos em qual estado o
+animals começou seu registro. Porém existem algumas propriedades
+estatísticas importantes. Porém, o que é interessante é que se
+calcularmos a proporção de repouso e atividade sobre o total de
+observações, que no nosso caso são 500, vamos obter um resultado muito
+próximo entre as simulações.
 
 ``` r
 sim_perc = sim_df %>% 
     group_by(sim, state) %>% 
     summarise(perc = n()/niter)
-```
 
-    ## `summarise()` has grouped output by 'sim'. You can override using the `.groups` argument.
-
-``` r
 head(sim_perc)
 ```
 
@@ -171,7 +159,7 @@ ggplot(sim_perc, aes(y = perc, x = factor(state), fill = factor(state))) +
     ylab("Porcentagem no Estado")
 ```
 
-![](markov_chain_files/figure-markdown_github/bar-plot-1.png)
+![](/assets/bar-plot-1.png)<!-- -->
 
 O fato das simulações se estabilizarem em certas proporções não é uma
 coindicência. Essa era justamente a propriedade que Markov queria
@@ -180,8 +168,7 @@ observações suficientes as proporções vão se estabilizar ao redor de
 algum valor mesmo que as observações não sejam totalmente independentes
 entre si.
 
-Usando Matrizes
-===============
+# Usando Matrizes
 
 Ao invés de simularmos uma sequência de transições e só depois
 calcularmos as proporções dos estados podemos fazer isso com matrizes.
@@ -214,11 +201,10 @@ step
 #       theme_minimal(base_size = 16)
 ```
 
-Outros Links
-============
+# Outros Links
 
--   <a href="https://willhipson.netlify.app/post/markov-sim/markov_chain/" class="uri">https://willhipson.netlify.app/post/markov-sim/markov_chain/</a>
--   <a href="https://a-little-book-of-r-for-bioinformatics.readthedocs.io/en/latest/src/chapter10.html" class="uri">https://a-little-book-of-r-for-bioinformatics.readthedocs.io/en/latest/src/chapter10.html</a>
--   <a href="http://recologia.com.br/2013/03/13/um-exemplo-de-markov-chain/" class="uri">http://recologia.com.br/2013/03/13/um-exemplo-de-markov-chain/</a>
--   <a href="https://towardsdatascience.com/markov-models-and-markov-chains-explained-in-real-life-probabilistic-workout-routine-65e47b5c9a73" class="uri">https://towardsdatascience.com/markov-models-and-markov-chains-explained-in-real-life-probabilistic-workout-routine-65e47b5c9a73</a>
--   <a href="https://www.stat.auckland.ac.nz/~fewster/325/notes/ch8.pdf" class="uri">https://www.stat.auckland.ac.nz/~fewster/325/notes/ch8.pdf</a>
+  - <https://willhipson.netlify.app/post/markov-sim/markov_chain/>
+  - <https://a-little-book-of-r-for-bioinformatics.readthedocs.io/en/latest/src/chapter10.html>
+  - <http://recologia.com.br/2013/03/13/um-exemplo-de-markov-chain/>
+  - <https://towardsdatascience.com/markov-models-and-markov-chains-explained-in-real-life-probabilistic-workout-routine-65e47b5c9a73>
+  - <https://www.stat.auckland.ac.nz/~fewster/325/notes/ch8.pdf>
